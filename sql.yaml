@@ -19,6 +19,8 @@
     - name: Get Object_details
       shell: echo exit |sqlplus "{{ oracle_username }}/{{ oracle_pwd }}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host={{ Rds_EndPoint }})(Port={{ oracle_port }}))(CONNECT_DATA=(SERVICE_NAME= {{ service_name }})))"@download_dir/testuser.sql;
       #environment:
+      args:
+         executable: /bin/bash
        #  ORACLE_HOME: <<Oracle Home path >>
         # PATH: << bin path >>
          #LD_LIBRARY_PATH: << lib path >>
@@ -27,5 +29,7 @@
 
     - name: Get Object_details
       shell: echo exit |sqlplus "{{ oracle_username }}/{{ oracle_pwd }}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host={{ Rds_EndPoint }})(Port={{ oracle_port }}))(CONNECT_DATA=(SERVICE_NAME= {{ service_name }})))"@download_dir/grantuser.sql;
+      args:
+         executable: /bin/bash
       when: sql_grantuser_script.stat.exists == true
 

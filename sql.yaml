@@ -2,11 +2,11 @@
 - hosts: localhost
   tasks:
 
-    - name: unarchive oracle tar
-      unarchive:
-        src: download_dir/sql.tar.gz
-        dest: download_dir
-        mode: 0755
+ #   - name: unarchive oracle tar
+  #    unarchive:
+   #     src: download_dir/sql.tar.gz
+    #    dest: download_dir
+     #   mode: 0755
 
     - name: check if testuser.sql exist
       stat: path=download_dir/testuser.sql

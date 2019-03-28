@@ -10,6 +10,6 @@
       register: sql_grantuser_script
 
     - name: Get Object_details
-      shell: echo exit |/usr/lib/oracle/18.5/client64/bin/sqlplus "{{ oracle_username }}/{{ oracle_pwd }}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={{ Rds_EndPoint }})(PORT={{ oracle_port }}))(CONNECT_DATA=({{ service_name }})))" @grantuser.sql >> outfile.log
+      shell: echo exit |sqlplus "{{ oracle_username }}/{{ oracle_pwd }}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={{ Rds_EndPoint }})(PORT={{ oracle_port }}))(CONNECT_DATA=({{ service_name }})))" @grantuser.sql >> outfile.log
       when: sql_grantuser_script.stat.exists == true
 

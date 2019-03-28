@@ -7,6 +7,6 @@
       register: sql_grantuser_script
 
     - name: Get Object_details
-      shell: echo exit |sqlplus "master/master2016@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=route53-rds.oscarose-ogba.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))" @grantuser.sql >> outfile.log
+      shell: echo exit |sqlplus "{{ oracle_username }}/{{ oracle_pwd }}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={{ Rds_EndPoint }})(PORT={{ oracle_port }}))(CONNECT_DATA=({{ service_name }})))" @grantuser.sql >> outfile.log
       when: sql_grantuser_script.stat.exists == true
 

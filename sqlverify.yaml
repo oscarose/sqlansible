@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+
+    - name: check if grantuser.sql exist
+      stat: path=grantuser.sql
+      register: sql_grantuser_script
+
+    - name: Get Object_details
+      shell: echo exit |sqlplus "master/master2016@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=route53-rds.oscarose-ogba.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))" @grantuser.sql >> outfile.log
+      when: sql_grantuser_script.stat.exists == true
+

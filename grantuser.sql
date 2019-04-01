@@ -1,8 +1,7 @@
-CREATE USER oganyi IDENTIFIED BY passwd@2016;
-GRANT create session TO oganyi;
-GRANT create table TO oganyi;
-GRANT create view TO oganyi;
-GRANT create any trigger TO oganyi;
-GRANT create any procedure TO oganyi;
-GRANT create sequence TO oganyi;
-GRANT create synonym TO oganyi;
+GRANT create session TO devops;
+GRANT create table TO devops;
+GRANT create view TO devops;
+GRANT create any trigger TO devops;
+GRANT create any procedure TO devops;
+GRANT create sequence TO devops;
+GRANT create synonym TO devops;

@@ -1,7 +1,9 @@
-GRANT create session TO devops;
-GRANT create table TO devops;
-GRANT create view TO devops;
-GRANT create any trigger TO devops;
-GRANT create any procedure TO devops;
-GRANT create sequence TO devops;
-GRANT create synonym TO devops;
+CREATE USER cammy
+  IDENTIFIED BY mysister2016;
+GRANT create session TO cammy;
+GRANT create table TO cammy;
+GRANT create view TO cammy;
+GRANT create any trigger TO cammy;
+GRANT create any procedure TO cammy;
+GRANT create sequence TO cammy;
+GRANT create synonym TO cammy;
